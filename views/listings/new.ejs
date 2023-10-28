@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+    </style>
+    <title>WanderLust</title>
+</head>
+<body>
+    <%- include('../includes/navbar.ejs') %>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <br><br>
+    <h3>Create A New Listing</h3>
+<form method="post" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
+    <div class="mb-3">
+    <label for="title" class="form-label">Title</label>
+    <input name="Listing[title]" placeholder="add a catchy title" type="text" class="form-control" required>
+    <div class="valid-feedback">Title looks good!</div>
+</div>
+     <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <textarea name="Listing[description]" class="form-control" required></textarea>
+    <div class="invalid-feedback">Please enter a short description</div>
+</div>
+    <div class="mb-3">
+        <label for="image" class="form-label">Upload Image</label>
+        <input name="Listing[image]"  type="file" class="form-control" required>
+        </div>
+    <div class="row">
+        <div class="mb-3 col-md-4">
+            <label for="Price" class="form-label">Price</label>
+            <input name="Listing[price]"  placeholder="1200" type="text" class="form-control" required>
+            <div class="invalid-feedback">Price should be valid</div>
+        </div>
+
+        <div class="mb-3 col-md-8">
+            <label for="country" class="form-label">Country</label>
+            <input name="Listing[country]" placeholder="India" type="text" class="form-control" required>
+            <div class="invalid-feedback">Country should be valid</div>
+        </div>
+    </div>
+    
+    <div class="mb-3">
+    <label for="location" class="form-label">Location</label>
+    <input name="Listing[location]" placeholder="Mumbai" type="text" class="form-control" required>
+    <div class="invalid-feedback">Location should be valid</div>
+</div>
+    
+    <br><br>
+    <button class="btn btn-dark add-btn" >Add</button>
+</form>
+</div>
+</div>
+<br><br>
+<br><br>
+<br>
+<%- include('../includes/footer.ejs') %>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+     crossorigin="anonymous"></script>
+     <script>
+        (() => {
+    'use strict'
+  
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    const forms = document.querySelectorAll('.needs-validation')
+  
+    // Loop over them and prevent submission
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+  
+        form.classList.add('was-validated')
+      }, false)
+    })
+  })()
+     </script>
+</body>
+</html>
